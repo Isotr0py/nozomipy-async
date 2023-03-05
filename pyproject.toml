@@ -1,0 +1,42 @@
+[project]
+name = "nozomipy-async"
+dynamic = ["version"]
+authors = [
+    { name = "Isotr0py" },
+]
+description = "Nozomi Async API for retrieving images, videos, gifs."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.8"
+dependencies = [
+    'aiohttp',
+    'dacite',
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]
+keywords=['nozomi', 'nozomi.la', 'api', 'video', 'image', 'anime']
+
+[project.urls]
+"Homepage" = "https://github.com/Isotr0py/nozomipy-async"
+"Bug Tracker" = "https://github.com/Isotr0py/nozomipy-async/issues"
+"Releases" = "https://github.com/Isotr0py/nozomipy-async/releases"
+
+[project.scripts]
+nozomi = "nozomipy.cmd:main"
+
+[build-system]
+requires = ["setuptools>=46.4.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["nozomipy"]
+
+[tool.setuptools.dynamic]
+version = { attr = "nozomipy.__init__.__VERSION__" }
+readme = { file = ["README.md"] }

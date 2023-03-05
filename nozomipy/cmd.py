@@ -2,13 +2,13 @@ from pathlib import Path
 import argparse
 import asyncio
 
-from nozomipy.async_api import api
+from .async_api import api
 
-async def dataset(args):
+async def dataset(nozomi_api:api,args):
     dataset_path,reports = await nozomi_api.init_dataset(Path(args.path),args.positive_tags,args.negative_tags,args.start_date,args.end_date)
     await nozomi_api.download_dataset(reports,dataset_path)
 
-if __name__=="__main__":
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--path", type=str, default=None,help='Path to create a dataset')
     parser.add_argument("--positive_tags", type=str, default=None, nargs='*',help='Positive tags')
@@ -21,5 +21,8 @@ if __name__=="__main__":
 
     nozomi_api = api(semaphore=args.num_process,proxy=args.proxy)
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(dataset(args))
+    loop.run_until_complete(dataset(nozomi_api,args))
     asyncio.run(nozomi_api.session.close())
+
+if __name__=="__main__":
+    main()
