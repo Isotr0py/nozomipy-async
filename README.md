@@ -42,3 +42,15 @@ Download images and tags during a period to a folder named with positive tags.
 ```bash
 nozomi --path "./" --positive_tags 'miyase_mahiro' --start_date 2022-02-22 --end_date 2022-01-22 --num_process=8 --proxy http://127.0.0.1:7890
 ```
+The files in dataset should be:
+```tree
+├─miyase_mahiro
+│      img1.jpg
+│      img1.txt
+│      img2.png
+│      img2.txt
+│      img3.jpg
+│      img3.txt
+│      ...
+│      metadata.json
+```
