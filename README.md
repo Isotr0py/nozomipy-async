@@ -40,5 +40,5 @@ await asyncio.gather(*[download_img_tags(post,path) for post in posts])
 ## Create dataset
 Download images and tags during a period to a folder named with positive tags.
 ```bash
-nozomipy --path "./" --positive_tags 'miyase_mahiro' --start_date 2022-02-22 --end_date 2022-01-22 --num_process=8 --proxy http://127.0.0.1:7890
+nozomi --path "./" --positive_tags 'miyase_mahiro' --start_date 2022-02-22 --end_date 2022-01-22 --num_process=8 --proxy http://127.0.0.1:7890
 ```
