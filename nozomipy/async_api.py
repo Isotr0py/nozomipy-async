@@ -115,6 +115,7 @@ class api:
         filepath.mkdir(parents=True, exist_ok=True)
         for media_meta_data in post.imageurls:
             image_url = media_meta_data.imageurl
+            image_url = "https://w.nozomi.la/"+"/".join(image_url.split("/")[3:]).split(".")[0]+".webp"
             image_name = image_url.split('/')[-1]
             image_filepath = filepath.joinpath(image_name)
             await self._download_media(image_url, image_filepath)
